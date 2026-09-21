@@ -3,15 +3,22 @@ package portfolio.backend.springboot.api_rest_mysql.services.project.Impl;
 import org.springframework.stereotype.Service;
 import portfolio.backend.springboot.api_rest_mysql.dto.project.ProjectRequest;
 import portfolio.backend.springboot.api_rest_mysql.dto.project.ProjectResponse;
+import portfolio.backend.springboot.api_rest_mysql.repositories.project.IProjectRepository;
 import portfolio.backend.springboot.api_rest_mysql.services.project.ProjectService;
 
 import java.util.List;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
+  private final IProjectRepository projectRepository;
+
+  public ProjectServiceImpl(IProjectRepository projectRepository) {
+    this.projectRepository = projectRepository;
+  }
+
   @Override
   public List<ProjectResponse> findAll() {
-    return List.of();
+    return projectRepository.findAll();
   }
 
   @Override
@@ -32,5 +39,11 @@ public class ProjectServiceImpl implements ProjectService {
   @Override
   public void delete(Long id) {
 
+  }
+
+  public ProjectResponse mapResponse(){
+    return new ProjectResponse(
+
+    );
   }
 }

@@ -20,7 +20,7 @@ import portfolio.backend.springboot.api_rest_mysql.services.task.TaskService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/project")
+@RequestMapping("/{user_id}/project")
 public class ProjectController {
   private final ProjectService projectService;
   private final TaskService taskService;
@@ -42,8 +42,8 @@ public class ProjectController {
   }
 
   @PostMapping
-  public ProjectResponse create(@RequestBody ProjectRequest project){
-    return projectService.create(project);
+  public ProjectResponse create(@RequestBody ProjectRequest project, @RequestParam Long user_id){
+    return projectService.create(project, user_id);
   }
 
   @PutMapping("/{id}")

@@ -3,13 +3,21 @@ package portfolio.backend.springboot.api_rest_mysql.services.task.Impl;
 import org.springframework.stereotype.Service;
 import portfolio.backend.springboot.api_rest_mysql.dto.task.TaskRequest;
 import portfolio.backend.springboot.api_rest_mysql.dto.task.TaskResponse;
+import portfolio.backend.springboot.api_rest_mysql.models.entities.task.Task;
+import portfolio.backend.springboot.api_rest_mysql.repositories.project.IProjectRepository;
 import portfolio.backend.springboot.api_rest_mysql.services.task.TaskService;
 
 import java.util.List;
 
 @Service
 public class TaskServiceImpl implements TaskService {
-  @Override
+  private final IProjectRepository projectRepository;
+
+    public TaskServiceImpl(IProjectRepository projectRepository) {
+        this.projectRepository = projectRepository;
+    }
+
+    @Override
   public List<TaskResponse> findAll(Long idProject) {
     return List.of();
   }
@@ -27,5 +35,21 @@ public class TaskServiceImpl implements TaskService {
   @Override
   public List<TaskResponse> update(Long idProject, Long idTask, TaskRequest task) {
     return List.of();
+  }
+
+  @Override
+  public TaskResponse mapResponse(Task task) {
+    return null;
+  }
+
+  public Task mapTask(TaskRequest taskRequest, Long project_id){
+    return new Task(
+            null,
+            projectRepository.findByProjectId(project_id),
+            taskRequest.title(),
+            taskRequest.description(),
+            taskRequest.priority(),
+            taskRequest.deadline()
+    );
   }
 }

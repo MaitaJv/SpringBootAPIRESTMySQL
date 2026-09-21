@@ -6,4 +6,5 @@ import portfolio.backend.springboot.api_rest_mysql.models.entities.user.User;
 
 @Repository
 public interface IUserRepository extends JpaRepository<User, Long> {
+    User findByUserId(Long id);
 }

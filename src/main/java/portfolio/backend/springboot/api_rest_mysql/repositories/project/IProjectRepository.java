@@ -6,5 +6,4 @@ import portfolio.backend.springboot.api_rest_mysql.models.entities.project.Proje
 
 @Repository
 public interface IProjectRepository extends JpaRepository<Project, Long> {
-    Project findByProjectId(Long project_id);
 }

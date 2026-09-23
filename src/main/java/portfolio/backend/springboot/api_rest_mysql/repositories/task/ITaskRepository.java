@@ -6,5 +6,4 @@ import portfolio.backend.springboot.api_rest_mysql.models.entities.task.Task;
 
 @Repository
 public interface ITaskRepository extends JpaRepository<Task, Long> {
-    Task findByTaskId(Long task_id);
 }

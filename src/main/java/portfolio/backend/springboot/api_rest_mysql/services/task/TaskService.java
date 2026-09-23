@@ -9,11 +9,13 @@ import java.util.List;
 public interface TaskService {
   List<TaskResponse> findAll(Long idProject);
 
-  List<TaskResponse> findById(Long idProject, Long idTask);
+  TaskResponse findById(Long idProject, Long idTask);
 
-  List<TaskResponse> create(Long idProject, TaskRequest task);
+  TaskResponse create(Long idProject, TaskRequest task);
 
-  List<TaskResponse> update(Long idProject, Long idTask, TaskRequest task);
+  TaskResponse update(Long idProject, Long idTask, TaskRequest task);
 
   TaskResponse mapResponse(Task task);
+
+  void delete(Long idProject, Long idTask);
 }

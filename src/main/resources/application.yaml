@@ -3,8 +3,8 @@ spring:
     name: api_rest_mysql
   datasource:
     url: jdbc:mysql://localhost:3306/project_manager_db?useSSL=false&serverTimezone=UTC
-    username: root
-    password: Zmxn_1029
+    username: username
+    password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -13,3 +13,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+  security:
+    user:
+      name: admin
+      password: admin123
